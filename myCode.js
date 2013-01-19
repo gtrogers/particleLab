@@ -8,16 +8,28 @@ code = function () {
         age: 0,
         speed: 3
     };
+    
+    var colorDecider = function () {
+        var colors = ['red','green','blue','black','pink'];
+        var index = parseInt(Math.random()*colors.length);
+        
+        return colors[index];
+    }
 
     page.animator = function(delta) {
         page.display.clear();
         
-        (myParticle.y < 0 || myParticle.y > 600) ? myParticle.y = 600 : myParticle.y -= myParticle.speed * delta;
-
+        myParticle.y = myParticle.y - myParticle.speed;
+        
+        if (myParticle.y < 0) {
+            myParticle.y = 600;
+        }
+        
         page.display.add(myParticle);
     };
 
     page.clicker = function(mouse) {
+        myParticle.color = colorDecider();
         myParticle.x = mouse.x;
         myParticle.y = mouse.y;
     };

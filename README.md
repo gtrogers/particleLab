@@ -7,7 +7,7 @@ What is it?
 ParticleLab is a javascript framework for learning how to code by thinking creatively.
 It provides simple animation and interaction hooks for an HTML5 canvas. It also complains
 if global variables get assigned or if an error gets thrown. This project is currently
-very alpha and designed to be used in as part of a workshop, it's by no means a teach-yourself-to-code
+very alpha and is designed to be used as part of a workshop, it's by no means a teach-yourself-to-code
 tool.
 
 Set Up
