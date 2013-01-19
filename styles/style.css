@@ -1,0 +1,55 @@
+/*     
+#333333 - almost black
+#F9F9F9 - refreshing white
+#FF7400 - fuse orange
+#D4EE5E - wasabi
+*/     
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    margin: 0;
+    color: #333333;
+    background-color: #F9F9F9;
+}
+
+p.global-var-message {
+    display: none;
+}
+
+.warn p.global-var-message {
+    display: block;
+    padding: 4px;
+    background-color: #FF7400;
+}
+
+p.error-message {
+    display: none;
+}
+
+.error p.error-message {
+    display: block;
+    padding: 4px;
+    background-color: #FF7400;
+}
+
+.top-bar h1 {
+    font-family: "Courier New", Courier, monospace;
+    display: block;
+    width: 800px;
+    margin: auto;
+    padding: 8px 0 4px 0;
+    background-color: #D4EE5E;
+    border-bottom: solid 8px #333333;
+}
+
+article {
+    width: 800px;
+    margin: auto;
+}
+
+#display {
+    display:    block;
+    margin-bottom: 32px;
+    margin-top: 32px;
+    box-shadow: 0 0 8px #333333;
+}
