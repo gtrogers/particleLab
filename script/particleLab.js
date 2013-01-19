@@ -6,7 +6,7 @@ var code = function() {
 var system = function() {
         var globalVarCount = 0;
         var addClassToBody = function(className) {
-                document.getElementsByTagName('body')[0].className += className;
+                document.getElementsByTagName('body')[0].className = className;
             };
 
         page.animator = function() {

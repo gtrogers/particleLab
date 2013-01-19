@@ -11,7 +11,7 @@ code = function () {
 
     page.animator = function(delta) {
         page.display.clear();
-
+        
         (myParticle.y < 0 || myParticle.y > 600) ? myParticle.y = 600 : myParticle.y -= myParticle.speed * delta;
 
         page.display.add(myParticle);
