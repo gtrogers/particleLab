@@ -9,7 +9,7 @@ var system = function() {
                 document.getElementsByTagName('body')[0].className = className;
             };
 
-        page.animator = function() {
+        page.perFrame = function() {
             var now = 0,
                 then = 0,
                 interval = 16,
@@ -22,7 +22,7 @@ var system = function() {
                     now = Date.now();
                     delta = (now - then) / interval;
                     try {
-                        page.animator((then === 0) ? 1 : delta);
+                        page.perFrame((then === 0) ? 1 : delta);
                     } catch (error) {
                         addClassToBody("error")
                         animator = onTick;
@@ -36,7 +36,7 @@ var system = function() {
             return onTick;
         }();
 
-        page.clicker = function() {
+        page.perClick = function() {
             var click = function() {
                     return click;
                 },
@@ -47,13 +47,13 @@ var system = function() {
                     x: event.pageX - canvas.offsetLeft,
                     y: event.pageY - canvas.offsetTop
                 };
-                page.clicker(mouse);
+                page.perClick(mouse);
             };
 
             return click;
         }();
 
-        page.display = function() {
+        display = function() {
             var context = document.getElementById('display').getContext('2d'),
                 width = document.getElementById('display').width,
                 height = document.getElementById('display').height;
@@ -62,7 +62,7 @@ var system = function() {
                     context.clearRect(0, 0, width, height);
                 };
 
-            var add = function(p) {
+            var draw = function(p) {
                     context.fillStyle = p.color;
                     context.strokeStyle = p.color;
                     context.beginPath();
@@ -73,9 +73,12 @@ var system = function() {
 
             return {
                 clear: clear,
-                add: add
+                draw: draw
             };
         }();
+        
+        page.draw = display.draw;
+        page.clear = display.clear;
 
         window.onload = function() {
             globalVarCount = Object.keys(window).length;
