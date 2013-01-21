@@ -64,24 +64,24 @@ var system = function() {
                 height = document.getElementById('display').height;
 
             var clear = function() {
-                    context.clearRect(0, 0, width, height);
-                };
+                context.clearRect(0, 0, width, height);
+            };
 
             var particleIsInvalid = function(p) {
-                    return (p.x === undefined || p.y === undefined || p.r === undefined || p.color === undefined);
-                };
+                return (p.x === undefined || p.y === undefined || p.r === undefined || p.color === undefined);
+            };
 
             var draw = function(p) {
-                    if (particleIsInvalid(p)) {
+                if (particleIsInvalid(p)) {
                         throw new Error("page.draw was expecting an object with x, y, r and color");
-                    }
-                    context.fillStyle = p.color;
-                    context.strokeStyle = p.color;
-                    context.beginPath();
-                    context.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-                    context.fill();
-                    context.stroke();
-                };
+                }
+                context.fillStyle = p.color;
+                context.strokeStyle = p.color;
+                context.beginPath();
+                context.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+                context.fill();
+                context.stroke();
+            };
 
             return {
                 clear: clear,
@@ -93,6 +93,11 @@ var system = function() {
         page.clear = display.clear;
 
         window.onload = function() {
+            var toggles = document.location.search;
+            if (toggles.indexOf("buttons") !== -1) {
+                document.getElementById("buttons").className = "";
+            }
+            
             globalVarCount = Object.keys(window).length;
 
             try {
