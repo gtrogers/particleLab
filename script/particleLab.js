@@ -7,7 +7,11 @@ var system = function() {
         var globalVarCount = 0;
         var addClassToBody = function(className) {
                 document.getElementsByTagName('body')[0].className = className;
+            },
+            addTextToError = function(text) {
+                document.getElementById('error-description').innerHTML = text;
             };
+
 
         page.perFrame = function() {
             var now = 0,
@@ -24,7 +28,8 @@ var system = function() {
                     try {
                         page.perFrame((then === 0) ? 1 : delta);
                     } catch (error) {
-                        addClassToBody("error")
+                        addClassToBody("error");
+                        addTextToError(error.message);
                         animator = onTick;
                         throw error;
                     }
@@ -62,7 +67,14 @@ var system = function() {
                     context.clearRect(0, 0, width, height);
                 };
 
+            var particleIsInvalid = function(p) {
+                    return (p.x === undefined || p.y === undefined || p.r === undefined || p.color === undefined);
+                };
+
             var draw = function(p) {
+                    if (particleIsInvalid(p)) {
+                        throw new Error("page.draw was expecting an object with x, y, r and color");
+                    }
                     context.fillStyle = p.color;
                     context.strokeStyle = p.color;
                     context.beginPath();
@@ -76,7 +88,7 @@ var system = function() {
                 draw: draw
             };
         }();
-        
+
         page.draw = display.draw;
         page.clear = display.clear;
 
@@ -86,6 +98,7 @@ var system = function() {
             try {
                 code();
             } catch (error) {
+                addTextToError(error.message);
                 addClassToBody("error");
                 throw error;
             }

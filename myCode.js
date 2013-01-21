@@ -9,14 +9,22 @@ code = function () {
     
     var blackParticle = {
         x: 375,
-        y: 300,
         r: 25,
+        y: 300,
         color: 'black',
         speed: 5
     };
 
     page.draw(orangeParticle);
     page.draw(blackParticle);
-    orangeParticle.y = orangeParticle.y + 50;
-    page.draw(orangeParticle);
+    
+    page.perClick = function (mouse) {
+        page.clear();
+ 
+        orangeParticle.y = mouse.y;
+        orangeParticle.x = mouse.x;
+        
+        page.draw(blackParticle);
+        page.draw(orangeParticle);
+    }
 };
