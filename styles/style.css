@@ -12,10 +12,6 @@ body {
     background-color: #F9F9F9;
 }
 
-.hidden {
-    display: none;
-}
-
 p.global-var-message {
     display: none;
 }
@@ -52,16 +48,8 @@ article {
 }
 
 #display {
-    display: block;
-    margin-bottom: 16px;
-    margin-top: 16px;
-    box-shadow: 0 0 8px #17102F;
-}
-
-#buttons a {
-    display: inline-block;
-    padding: 8px;
-    margin: 24px 16px 16px 0;
-    text-decoration: none;
-    box-shadow: 0 0 8px #17102F;
+    display:    block;
+    margin-bottom: 32px;
+    margin-top: 32px;
+    box-shadow: 0 0 8px #333333;
 }
