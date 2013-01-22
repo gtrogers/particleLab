@@ -5,36 +5,29 @@ var code = function() {
 
 var system = function() {
         var globalVarCount = 0;
-        var addClassToBody = function(className) {
-                document.getElementsByTagName('body')[0].className = className;
-            },
-            addTextToError = function(text) {
-                document.getElementById('error-description').innerHTML = text;
-            };
-
+        var addClassToBody = function(className) { document.getElementsByTagName('body')[0].className = className; },
+            addTextToError = function(text) { document.getElementById('error-description').innerHTML = text; };
 
         page.perFrame = function() {
             var now = 0,
                 then = 0,
                 interval = 16,
                 delta = 1,
-                onTick = function() {
-                    return onTick;
-                };
+                onTick = function() { return onTick; };
 
             var main = function() {
-                    now = Date.now();
-                    delta = (now - then) / interval;
-                    try {
-                        page.perFrame((then === 0) ? 1 : delta);
-                    } catch (error) {
-                        addClassToBody("error");
-                        addTextToError(error.message);
-                        animator = onTick;
-                        throw error;
-                    }
-                    then = now;
-                };
+                now = Date.now();
+                delta = (now - then) / interval;
+                try {
+                    page.perFrame((then === 0) ? 1 : delta);
+                } catch (error) {
+                    addClassToBody("error");
+                    addTextToError(error.message);
+                    animator = onTick;
+                    throw error;
+                }
+                then = now;
+            };
 
             setInterval(main, interval);
 
@@ -64,24 +57,24 @@ var system = function() {
                 height = document.getElementById('display').height;
 
             var clear = function() {
-                    context.clearRect(0, 0, width, height);
-                };
+                context.clearRect(0, 0, width, height);
+            };
 
             var particleIsInvalid = function(p) {
-                    return (p.x === undefined || p.y === undefined || p.r === undefined || p.color === undefined);
-                };
+                return (p.x === undefined || p.y === undefined || p.r === undefined || p.color === undefined);
+            };
 
             var draw = function(p) {
-                    if (particleIsInvalid(p)) {
-                        throw new Error("page.draw was expecting an object with x, y, r and color");
-                    }
-                    context.fillStyle = p.color;
-                    context.strokeStyle = p.color;
-                    context.beginPath();
-                    context.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-                    context.fill();
-                    context.stroke();
-                };
+                if (particleIsInvalid(p)) {
+                    throw new Error("page.draw was expecting an object with x, y, r and color");
+                }
+                context.fillStyle = p.color;
+                context.strokeStyle = p.color;
+                context.beginPath();
+                context.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+                context.fill();
+                context.stroke();
+            };
 
             return {
                 clear: clear,
