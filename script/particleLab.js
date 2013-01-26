@@ -5,9 +5,8 @@ var code = function() {
 
 var system = function() {
         var globalVarCount = 0;
-        var addClassToBody = function(className) { document.getElementsByTagName('body')[0].className = className; },
-            addTextToError = function(text) { document.getElementById('error-description').innerHTML = text; },
-            addErrorMessage = function(text) {
+
+        var addErrorMessage = function(text) {
                 var paragraph = document.createElement('p');
                 paragraph.innerHTML = text;
                 paragraph.className = "warning";
