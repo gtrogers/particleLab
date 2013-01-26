@@ -1,14 +1,14 @@
 /*     
-#333333 - almost black
 #F9F9F9 - refreshing white
 #FF7400 - fuse orange
 #D4EE5E - wasabi
+#17102F - stygian
 */     
 
 body {
     font-family: Verdana, Geneva, sans-serif;
     margin: 0;
-    color: #333333;
+    color: #17102F;
     background-color: #F9F9F9;
 }
 
@@ -19,23 +19,28 @@ body {
     margin: auto;
     padding: 8px 0 4px 0;
     background-color: #D4EE5E;
-    border-bottom: solid 8px #333333;
+    border-bottom: solid 8px #17102F;
 }
 
 article {
     width: 800px;
-    margin: auto;
+    margin: 32px auto 32px auto;
 }
 
 #display {
-    display:    block;
-    margin-bottom: 32px;
-    margin-top: 32px;
-    box-shadow: 0 0 8px #333333;
+    display: block;
+    box-shadow: 0 0 8px #17102F;
 }
 
-p.warning {
+.warning {
     display: block;
     padding: 4px;
     background-color: #FF7400;
+}
+
+.alpha {
+    float: right;
+    background-color: #D4EE5E;
+    color: #17102F;
+    padding: 4px;
 }
