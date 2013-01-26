@@ -56,17 +56,17 @@ var system = function() {
             };
 
             var particleIsInvalid = function(p) {
-                return (p.x === undefined || p.y === undefined || p.r === undefined || p.color === undefined);
+                return (p.x === undefined || p.y === undefined || p.radius === undefined || p.color === undefined);
             };
 
             var draw = function(p) {
                 if (particleIsInvalid(p)) {
-                    throw new Error("page.draw was expecting an object with x, y, r and color");
+                    throw new Error("page.draw was expecting an object with x, y, radius and color");
                 }
                 context.fillStyle = p.color;
                 context.strokeStyle = p.color;
                 context.beginPath();
-                context.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+                context.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
                 context.fill();
                 context.stroke();
             };

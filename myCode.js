@@ -3,13 +3,13 @@ code = function () {
     var orangeParticle = {
         x: 425,
         y: 300,
-        r: 25,
+        radius: 25,
         color: 'orange',
     };
     
     var blackParticle = {
         x: 375,
-        r: 25,
+        radius: 25,
         y: 300,
         color: 'black',
         speed: 5
