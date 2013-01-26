@@ -29,5 +29,5 @@ code = function () {
         }
         
         page.draw(orangeParticle);
-    }
+    };
 };
