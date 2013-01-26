@@ -63,6 +63,10 @@ var system = function() {
             var particleIsInvalid = function(p) {
                 return (p.x === undefined || p.y === undefined || p.radius === undefined || p.color === undefined);
             };
+            
+            var background = function(color) {
+                document.getElementById('display').style['background-color'] = color;
+            };
 
             var draw = function(p) {
                 if (particleIsInvalid(p)) {
@@ -78,12 +82,14 @@ var system = function() {
 
             return {
                 clear: clear,
-                draw: draw
+                draw: draw,
+                background: background
             };
         }();
 
         page.draw = display.draw;
         page.clear = display.clear;
+        page.background = display.background;
 
         window.onload = function() {
             globalVarCount = Object.keys(window).length;
