@@ -12,8 +12,7 @@ var system = function() {
             var now = 0,
                 then = 0,
                 interval = 16,
-                delta = 1,
-                onTick = function() { return onTick; };
+                delta = 1;
 
             var main = function() {
                 now = Date.now();
@@ -23,7 +22,6 @@ var system = function() {
                 } catch (error) {
                     addClassToBody("error");
                     addTextToError(error.message);
-                    animator = onTick;
                     throw error;
                 }
                 then = now;
@@ -31,14 +29,11 @@ var system = function() {
 
             setInterval(main, interval);
 
-            return onTick;
+            return function () {};
         }();
 
         page.perClick = function() {
-            var click = function() {
-                    return click;
-                },
-                canvas = document.getElementById('display');
+            var canvas = document.getElementById('display');
 
             canvas.onclick = function(event) {
                 var mouse = {
@@ -48,7 +43,7 @@ var system = function() {
                 page.perClick(mouse);
             };
 
-            return click;
+            return function () {};
         }();
 
         display = function() {
