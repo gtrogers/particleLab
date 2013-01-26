@@ -6,7 +6,13 @@ var code = function() {
 var system = function() {
         var globalVarCount = 0;
         var addClassToBody = function(className) { document.getElementsByTagName('body')[0].className = className; },
-            addTextToError = function(text) { document.getElementById('error-description').innerHTML = text; };
+            addTextToError = function(text) { document.getElementById('error-description').innerHTML = text; },
+            addErrorMessage = function(text) {
+                var paragraph = document.createElement('p');
+                paragraph.innerHTML = text;
+                paragraph.className = "warning";
+                document.getElementById("messages").appendChild(paragraph);
+            };
 
         page.perFrame = function() {
             var now = 0,
@@ -86,13 +92,12 @@ var system = function() {
             try {
                 code();
             } catch (error) {
-                addTextToError(error.message);
-                addClassToBody("error");
+                addErrorMessage("Oops, it looks like your code threw an error. <strong>" + error + "</strong>");
                 throw error;
             }
 
             if (Object.keys(window).length !== globalVarCount) {
-                addClassToBody("warn");
+                addErrorMessage("Oops, it looks like you created a global variable, you probably didn't want to do that.");
             }
         };
     }();

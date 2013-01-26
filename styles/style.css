@@ -12,26 +12,6 @@ body {
     background-color: #F9F9F9;
 }
 
-p.global-var-message {
-    display: none;
-}
-
-.warn p.global-var-message {
-    display: block;
-    padding: 4px;
-    background-color: #FF7400;
-}
-
-p.error-message {
-    display: none;
-}
-
-.error p.error-message {
-    display: block;
-    padding: 4px;
-    background-color: #FF7400;
-}
-
 .top-bar h1 {
     font-family: "Courier New", Courier, monospace;
     display: block;
@@ -52,4 +32,10 @@ article {
     margin-bottom: 32px;
     margin-top: 32px;
     box-shadow: 0 0 8px #333333;
+}
+
+p.warning {
+    display: block;
+    padding: 4px;
+    background-color: #FF7400;
 }
