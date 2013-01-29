@@ -12,7 +12,6 @@ code = function () {
         radius: 25,
         y: 300,
         color: 'black',
-        speed: 5
     };
 
     page.draw(orangeParticle);
