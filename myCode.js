@@ -17,13 +17,4 @@ code = function () {
     page.draw(orangeParticle);
     page.draw(blackParticle);
     
-    page.perClick = function (mouse) {
-        page.clear();
- 
-        orangeParticle.y = mouse.y;
-        orangeParticle.x = mouse.x;
-        
-        page.draw(blackParticle);
-        page.draw(orangeParticle);
-    }
 };
