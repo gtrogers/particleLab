@@ -1,29 +1,34 @@
+// http://bit.ly/XCNBkR <-- download me!
+
 code = function () {
-
-    var orangeParticle = {
-        x: 425,
-        y: 300,
+    
+    var mrParticle = {
+        x: 100,
+        y: 100,
         radius: 25,
-        color: 'orange',
+        color: 'red'
     };
     
-    var blackParticle = {
-        x: 375,
-        radius: 25,
-        y: 300,
-        color: 'black',
-    };
-
-    page.draw(orangeParticle);
-    page.draw(blackParticle);
+    page.draw(mrParticle);
     
-    page.perClick = function (mouse) {
+    var widthOfScreen = 800;
+    var heightOfScreen = 600;
+    
+    page.perFrame = function() {
         page.clear();
- 
-        orangeParticle.y = mouse.y;
-        orangeParticle.x = mouse.x;
         
-        page.draw(blackParticle);
-        page.draw(orangeParticle);
-    }
+        page.draw(mrParticle);
+        
+        mrParticle.y = mrParticle.y + 1;
+        mrParticle.x = mrParticle.x + 1;
+        
+        if (mrParticle.y > heightOfScreen) {
+            mrParticle.y = 0;
+        }
+        
+        if (mrParticle.x > widthOfScreen) {
+            mrParticle.x = 0;
+        }
+    };
+    
 };
